@@ -15,7 +15,7 @@ public class AdministradorController {
 	AdministradorService admService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public AdministradorDto getByLogin(String login, String password) {
-		return admService.getByLogin(login, password);
+	public AdministradorDto getByLogin(String username, String password) {
+		return admService.getByLogin(username, password);
 	}
 }

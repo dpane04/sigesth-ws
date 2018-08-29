@@ -6,15 +6,15 @@ public class AdministradorDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String cedula;
-	private String login;
+	private String username;
 	private int tipo;
 
 	public AdministradorDto() {
 	}
 
-	public AdministradorDto(String cedula, String login, String password, int tipo) {
+	public AdministradorDto(String cedula, String username, String password, int tipo) {
 		this.cedula = cedula;
-		this.login = login;
+		this.username = username;
 		this.tipo = tipo;
 	}
 
@@ -26,12 +26,12 @@ public class AdministradorDto implements Serializable {
 		this.cedula = cedula;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public int getTipo() {

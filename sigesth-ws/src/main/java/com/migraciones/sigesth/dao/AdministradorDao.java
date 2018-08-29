@@ -37,7 +37,7 @@ public class AdministradorDao extends JdbcDaoSupport implements IAdministradorDa
 		for (Map<String, Object> row : rows) {
 			AdministradorDto adm = new AdministradorDto();
 			adm.setCedula((String) row.get("personal_cedula"));
-			adm.setLogin((String) row.get("admin_login"));
+			adm.setUsername((String) row.get("admin_login"));
 			adm.setTipo((int) row.get("tipoadmin_id"));
 			result.add(adm);
 		}
@@ -45,8 +45,8 @@ public class AdministradorDao extends JdbcDaoSupport implements IAdministradorDa
 	}
 
 	@Override
-	public AdministradorDto getByLogin(String login, String password) {
-		String sql = "SELECT * FROM dgth.administradores WHERE admin_login='" + login
+	public AdministradorDto getByLogin(String username, String password) {
+		String sql = "SELECT * FROM dgth.administradores WHERE admin_login='" + username
 				+ "' AND tipoadmin_id<>4 AND admin_estado<='A' AND admin_password=md5('" + password + "')";
 		return (AdministradorDto) getJdbcTemplate().query(sql, new ResultSetExtractor<AdministradorDto>() {
 
@@ -55,7 +55,7 @@ public class AdministradorDao extends JdbcDaoSupport implements IAdministradorDa
 				if (rs.next()) {
 					AdministradorDto adm = new AdministradorDto();
 					adm.setCedula((String) rs.getString("personal_cedula"));
-					adm.setLogin((String) rs.getString("admin_login"));
+					adm.setUsername((String) rs.getString("admin_login"));
 					adm.setTipo((int) rs.getInt("tipoadmin_id"));
 					return adm;
 				} else {

@@ -20,8 +20,8 @@ public class AdministradorService implements IAdministradorService {
 	}
 
 	@Override
-	public AdministradorDto getByLogin(String login, String password) {
-		return administradorDao.getByLogin(login, password);
+	public AdministradorDto getByLogin(String username, String password) {
+		return administradorDao.getByLogin(username, password);
 	}
 
 }
