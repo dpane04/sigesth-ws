@@ -17,7 +17,6 @@ import org.springframework.stereotype.Repository;
 
 import com.migraciones.sigesth.dto.AdministradorDto;
 
-
 @Repository
 public class AdministradorDao extends JdbcDaoSupport implements IAdministradorDao {
 
@@ -56,6 +55,7 @@ public class AdministradorDao extends JdbcDaoSupport implements IAdministradorDa
 					AdministradorDto adm = new AdministradorDto();
 					adm.setCedula((String) rs.getString("personal_cedula"));
 					adm.setUsername((String) rs.getString("admin_login"));
+					adm.setPassword((String) rs.getString("admin_password"));
 					adm.setTipo((int) rs.getInt("tipoadmin_id"));
 					return adm;
 				} else {
